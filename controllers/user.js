@@ -29,3 +29,13 @@ export const getUser = async (req, res) => {
     res.status(404).json({error: error.message});
   }
 }
+
+export const deleteUser = async (req, res) => {
+  const {id} = req.params;
+  try {
+    await UserData.findByIdAndRemove(id);
+    res.status(200).json({message : "User Account successfully deleted."});
+  } catch (error) {
+    res.status(404).json({error : error.message});
+  }
+}
