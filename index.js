@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 
 import userRoutes from "./routes/user.js";
+import gameRoutes from "./routes/games.js";
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use("/user", userRoutes);
+app.use("/game", gameRoutes);
 
 const CONNECTION_URL =
   "mongodb+srv://golaithAdmins:golaithAdmins0@cluster0.zmupedm.mongodb.net/?retryWrites=true&w=majority";

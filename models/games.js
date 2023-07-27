@@ -6,17 +6,17 @@ const gameSchema = mongoose.Schema({
     desc:String ,
     reviews:[String],
     rating:{
-        type:NumberDecimals ,
+        type:Number,
         default:0
     },
     links:String ,
     media:String ,
     Downloads:{
-        type:NumberDecimals ,
+        type:Number,
         default:0
     },
     WCount:{
-        type:NumberDecimals ,
+        type:Number,
         default:0
     },
     createdAT:{
