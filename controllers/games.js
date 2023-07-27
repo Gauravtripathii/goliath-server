@@ -43,8 +43,8 @@ export const deleteGame = async (req, res) => {
 
 export const updateGame = async (req, res) => {
   const {id} = req.params;
-  const { Name, gamename, Email_id, password, Toa, wishlist, g_purchase, generes_played } = req.body;
-  const updatedgame = { Name, gamename, Email_id, password, Toa, wishlist, g_purchase, generes_played, _id : id };
+  const { Name, genere, desc, reviews, rating, links, media, Downloads, WCount, Game } = req.body;
+  const updatedgame = { Name, genere, desc, reviews, rating, links, media, Downloads, WCount, Game, _id : id };
   try {
     await GameData.findByIdAndUpdate(id, updatedgame, {new : true} );
     res.status(200).json(updatedgame);
