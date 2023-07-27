@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const postSchema = mongoose.Schema({
+const gameSchema = mongoose.Schema({
     Name:String ,
     genere:[String] ,
     desc:String ,
@@ -23,4 +23,8 @@ const postSchema = mongoose.Schema({
         type:Date ,
         default:new Date()
     }
+
 })
+
+const GameData = mongoose.model('GameData', gameSchema);
+export default GameData;
