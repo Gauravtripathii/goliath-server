@@ -22,8 +22,8 @@ const gameSchema = mongoose.Schema({
     createdAT:{
         type:Date ,
         default:new Date()
-    }
-
+    },
+    Game:String
 })
 
 const GameData = mongoose.model('GameData', gameSchema);
