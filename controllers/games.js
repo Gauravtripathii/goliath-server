@@ -19,3 +19,36 @@ export const createGame = async (req, res) => {
     res.status(409).json({ message: error.message });
   }
 };
+
+
+export const getgame = async (req, res) => {
+  const {id} = req.params;
+  try {
+    const gameData = await gameData.findById(id);
+    res.status(200).json(gameData);
+  } catch (error) {
+    res.status(404).json({error: error.message});
+  }
+}
+
+export const deletegame = async (req, res) => {
+  const {id} = req.params;
+  try {
+    await GameData.findByIdAndRemove(id);
+    res.status(200).json({message : "game Account successfully deleted."});
+  } catch (error) {
+    res.status(404).json({error : error.message});
+  }
+}
+
+export const updategame = async (req, res) => {
+  const {id} = req.params;
+  const { Name, gamename, Email_id, password, Toa, wishlist, g_purchase, generes_played } = req.body;
+  const updatedgame = { Name, gamename, Email_id, password, Toa, wishlist, g_purchase, generes_played, _id : id };
+  try {
+    await GameData.findByIdAndUpdate(id, updatedgame, {new : true} );
+    res.status(200).json(updatedgame);
+  } catch(error) {
+    res.status(404).json({error : error.message} );
+  }
+}
