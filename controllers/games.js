@@ -21,7 +21,7 @@ export const createGame = async (req, res) => {
 };
 
 
-export const getgame = async (req, res) => {
+export const getGame = async (req, res) => {
   const {id} = req.params;
   try {
     const gameData = await gameData.findById(id);
@@ -31,7 +31,7 @@ export const getgame = async (req, res) => {
   }
 }
 
-export const deletegame = async (req, res) => {
+export const deleteGame = async (req, res) => {
   const {id} = req.params;
   try {
     await GameData.findByIdAndRemove(id);
@@ -41,7 +41,7 @@ export const deletegame = async (req, res) => {
   }
 }
 
-export const updategame = async (req, res) => {
+export const updateGame = async (req, res) => {
   const {id} = req.params;
   const { Name, gamename, Email_id, password, Toa, wishlist, g_purchase, generes_played } = req.body;
   const updatedgame = { Name, gamename, Email_id, password, Toa, wishlist, g_purchase, generes_played, _id : id };
